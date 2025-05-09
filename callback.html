@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Spotify Redirect</title></head>
+  <body>
+    <h1>Vänta...</h1>
+    <script>
+      // Extrahera auth-kod från URL:en
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+
+      // Skicka koden vidare till din lokala app
+      fetch("http://localhost:5000/receive-code", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code })
+      }).then(() => {
+        document.body.innerHTML = "Koden skickades till din app. Du kan stänga detta fönster.";
+      });
+    </script>
+  </body>
+</html>
