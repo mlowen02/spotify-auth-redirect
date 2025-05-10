@@ -9,7 +9,7 @@
       const code = params.get("code");
 
       // Skicka koden vidare till din lokala app
-      fetch("http://localhost:5000/receive-code", {
+      fetch("https://bb85-2a02-1406-108-5fc4-f944-9be9-ab49-4f84.ngrok-free.app/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code })
